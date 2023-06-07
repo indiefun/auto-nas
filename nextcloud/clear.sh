@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sudo rm -rf ./postgres/ ./redis/ ./data/
+cd "$(dirname "$0")"
+
+echo "Removing postgres, redis, data in $PWD..."
+sudo rm -rf postgres redis data

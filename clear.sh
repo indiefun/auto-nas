@@ -14,9 +14,8 @@ if ! [[ $CONFIRMED =~ ^[Nn]$ ]]; then
 fi
 
 for MODULE in gateway nextcloud jellyfin; do
-    cd ./$MODULE
-    if [ -f ./clear.sh ]; then
-        ./clear.sh
+    echo ""
+    if [ -f $MODULE/clear.sh ]; then
+        ./$MODULE/clear.sh
     fi
-    cd ..
 done

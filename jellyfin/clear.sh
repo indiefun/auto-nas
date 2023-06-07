@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sudo rm -rf ./cache/ ./config/ ./media/
+cd "$(dirname "$0")"
+
+echo "Removing cache, config, media in $PWD..."
+sudo rm -rf cache config media

@@ -23,11 +23,9 @@ read -p "input cloudflare tunnel token: " TUNNEL_TOKEN
 
 for MODULE in nextcloud jellyfin gateway; do
     echo ""
-    cd ./$MODULE
-    if [ -f ./config.sh ]; then
-        NEXTCLOUD_DOMAINS="$NEXTCLOUD_DOMAINS" JELLYFIN_DOMAINS="$JELLYFIN_DOMAINS" TUNNEL_TOKEN="$TUNNEL_TOKEN" ./config.sh
+    if [ -f $MODULE/config.sh ]; then
+        NEXTCLOUD_DOMAINS="$NEXTCLOUD_DOMAINS" JELLYFIN_DOMAINS="$JELLYFIN_DOMAINS" TUNNEL_TOKEN="$TUNNEL_TOKEN" ./$MODULE/config.sh
     fi
-    cd ..
 done
 
 echo ""

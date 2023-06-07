@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+cd "$(dirname "$0")"
 ISO_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+
 echo "Start config jellyfin..."
 
 # backup docker-compose.yml if exists
