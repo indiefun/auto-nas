@@ -1,0 +1,14 @@
+{{SERVER_NAMES}} {
+    encode gzip
+
+    request_body {
+        max_size 10GB
+    }
+
+    header Strict-Transport-Security "max-age=15552000; includeSubDomains"
+    
+    redir /.well-known/carddav /remote.php/dav 301
+    redir /.well-known/caldav /remote.php/dav 301
+    
+    reverse_proxy nextcloud:80
+}

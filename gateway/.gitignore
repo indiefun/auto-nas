@@ -1,0 +1,5 @@
+/Caddyfile
+/Caddyfile.*
+
+/docker-compose.yml
+/docker-compose.yml.*

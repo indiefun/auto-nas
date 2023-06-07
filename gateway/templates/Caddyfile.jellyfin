@@ -1,0 +1,11 @@
+{{SERVER_NAMES}} {
+    encode gzip
+
+    request_body {
+        max_size 10GB
+    }
+
+    header Strict-Transport-Security "max-age=15552000; includeSubDomains"
+    
+    reverse_proxy jellyfin:8096
+}

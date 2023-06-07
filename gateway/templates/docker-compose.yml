@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    expose:
+      - 80
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --no-autoupdate run --token {{TUNNEL_TOKEN}}
+    depends_on:
+      - caddy
+
+networks:
+  default:
+    name: auto-nas

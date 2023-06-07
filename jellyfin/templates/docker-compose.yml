@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:10.8.10
+    restart: always
+    expose:
+      - 8096
+    volumes:
+      - ./config/:/config/
+      - ./cache/:/cache/
+      - ./media/:/media/
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+    env_file:
+      - timezone.env
+
+networks:
+  default:
+    name: auto-nas
