@@ -14,6 +14,7 @@ then
         echo "info: https://docs.docker.com/engine/install/#supported-platforms"
         exit 1
     fi
+    echo "docker has been installed!"
 fi
 
 # check if docker-compose is installed
@@ -23,6 +24,7 @@ then
     echo "Installing docker-compose..."
     curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    echo "docker-compose has been installed!"
 fi
 
-echo "Docker and docker-compose has been installed!"
+echo "All set up!"
