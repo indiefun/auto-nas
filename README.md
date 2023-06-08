@@ -63,6 +63,8 @@
 * `stop.sh`    停止Docker容器
 * `status.sh`  查看Docker容器状态
 * `clear.sh`   清理Docker容器的挂载点，会删除所有数据，**谨慎使用**
+* `backup.sh`  备份所有文件，包括数据，备份前请先stop所有docker容器，备份生成backup.tar.gz压缩包，可以将backup.tar.gz转移到其他目录或者机器
+* `recover.sh` 恢复所有文件，包括数据，备份前请先stop所有docker容器，并将backup.tar.gz放入当前目录
 
 ## 参考链接
 
