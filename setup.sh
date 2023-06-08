@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd "$(dirname "$0")"
+
 # Install docker if not already installed
 echo "Checking if docker is installed..."
 if ! command -v docker &> /dev/null
