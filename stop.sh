@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 for MODULE in gateway jellyfin nextcloud; do
-    echo ""
-    echo "Stop $MODULE..."
-    cd ./$MODULE
-    docker-compose down
-    cd ..
+    if [ -f $MODULE/docker-compose.yml ]; then
+        echo ""
+        echo "Stop $MODULE..."
+        cd ./$MODULE
+        docker-compose down
+        cd ..
+    fi
 done
 
 echo ""

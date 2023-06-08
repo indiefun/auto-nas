@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 for MODULE in nextcloud jellyfin gateway; do
-    echo ""
-    echo "Start $MODULE..."
-    cd ./$MODULE
-    docker-compose up -d
-    cd ..
+    if [ -f $MODULE/docker-compose.yml ]; then
+        echo ""
+        echo "Start $MODULE..."
+        cd ./$MODULE
+        docker-compose up -d
+        cd ..
+    fi
 done
 
 echo ""
