@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
+if [ -z "$NEXTCLOUD_DOMAINS" ]; then
+    echo "Skip nextcloud config"
+    exit
+fi
+
 cd "$(dirname "$0")"
 ISO_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
 
 echo "Start config nextcloud..."
-
-if [ -z "$NEXTCLOUD_DOMAINS" ]; then
-    echo "env NEXTCLOUD_DOMAINS must be set"
-    exit 1
-fi
 
 echo ""
 echo "Generating random password for postgres..."

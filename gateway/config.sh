@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
+if [ -z "$NEXTCLOUD_DOMAINS" ] && [ -z "$JELLYFIN_DOMAINS" ]; then
+    echo "env NEXTCLOUD_DOMAINS or JELLYFIN_DOMAINS must be set"
+    exit 1
+fi
+
 cd "$(dirname "$0")"
 ISO_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
 
 echo "Start config gateway..."
-
-if [ -z "$NEXTCLOUD_DOMAINS" ] && [ -z "$JELLYFIN_DOMAINS" ]; then
-    echo ""
-    echo "env NEXTCLOUD_DOMAINS or JELLYFIN_DOMAINS must be set"
-    exit 1
-fi
 
 if [ -f Caddyfile ]; then
     echo ""

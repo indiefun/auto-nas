@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ -z "$JELLYFIN_DOMAINS" ]; then
+    echo "Skip jellyfin config"
+    exit
+fi
+
 cd "$(dirname "$0")"
 ISO_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
 

@@ -21,10 +21,14 @@ echo ""
 echo "Cloudflare tunnel token: (skip installation if empty)"
 read -p "input cloudflare tunnel token: " TUNNEL_TOKEN
 
-for MODULE in nextcloud jellyfin gateway; do
-    echo ""
+for MODULE in gateway nextcloud jellyfin; do
     if [ -f $MODULE/config.sh ]; then
+        echo ""
         NEXTCLOUD_DOMAINS="$NEXTCLOUD_DOMAINS" JELLYFIN_DOMAINS="$JELLYFIN_DOMAINS" TUNNEL_TOKEN="$TUNNEL_TOKEN" ./$MODULE/config.sh
+    fi
+    if [ "$?" != "0" ]; then
+        echo ""
+        exit $?
     fi
 done
 
