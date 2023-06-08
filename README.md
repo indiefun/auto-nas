@@ -5,11 +5,11 @@
 
 ## Usage 用法
 
-* 准备一个域名，可以在万网上直接购买，假设为example.com
+* 准备一个域名，可以在万网上直接购买，假设为`example.com`
 
-* 在Cloudflare上面添加站点，域名填写example.com，记录要配置的DNS解析服务器地址
+* 在Cloudflare上面添加站点，域名填写`example.com`，记录要配置的DNS解析服务器地址
 
-* 在万网后台将example.com域名的DNS解析服务器设置为Cloudflare提供的DNS解析服务器
+* 在万网后台将`example.com`域名的DNS解析服务器设置为Cloudflare提供的DNS解析服务器
 
 * 在Cloudflare上面建立Tunnel，记录TUNNEL_TOKEN，并配置TUNNEL使用的域名，需要哪个配置哪个，也可以都配置上
 
