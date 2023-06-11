@@ -10,7 +10,7 @@ then
     OSTYPE=`cat /etc/os-release | grep '^ID=' | awk -F= '{ print $2 }'`
     echo "OSTYPE: $OSTYPE"
     if [[ -d platforms/$OSTYPE ]]; then
-        ./platforms/$OSTYPE/setup.sh
+        sudo bash ./platforms/$OSTYPE/setup.sh
     else
         echo "Unsupported OS: $OSTYPE"
         echo "info: https://docs.docker.com/engine/install/#supported-platforms"
@@ -27,6 +27,15 @@ then
     curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     echo "docker-compose has been installed!"
+fi
+
+# check if user is in docker group
+echo "Checking if user is in docker group..."
+if ! id -Gn | grep docker &> /dev/null
+then
+    echo "Adding user to docker group..."
+    sudo usermod -aG docker $USER
+    echo "user has been added to docker group!"
 fi
 
 echo "All set up!"
